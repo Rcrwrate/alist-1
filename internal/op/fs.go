@@ -554,13 +554,13 @@ func Put(ctx context.Context, storage driver.Driver, dstDirPath string, file mod
 			if newObj != nil {
 				addCacheObj(storage, dstDirPath, model.WrapObjName(newObj))
 			} else if !utils.IsBool(lazyCache...) {
-				ClearCache(storage, dstDirPath)
+				// ClearCache(storage, dstDirPath)
 			}
 		}
 	case driver.Put:
 		err = s.Put(ctx, parentDir, file, up)
 		if err == nil && !utils.IsBool(lazyCache...) {
-			ClearCache(storage, dstDirPath)
+			// ClearCache(storage, dstDirPath)
 		}
 	default:
 		return errs.NotImplement
